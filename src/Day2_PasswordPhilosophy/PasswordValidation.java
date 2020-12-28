@@ -33,7 +33,8 @@ public class PasswordValidation {
         String st;
         br = new BufferedReader(new FileReader(file));
 
-        int validPasswords = 0;
+        int validPasswordsOne = 0;
+        int validPasswordsTwo = 0;
 
         while ((st = br.readLine()) != null) {
             //3-15 d: dpdgmdnfsdbgdddbdmcd
@@ -49,16 +50,18 @@ public class PasswordValidation {
 
             String password = result[1].trim();
 
-//            if(isValidPasswordPolicyOne(minInt, maxInt, letter, password)) {
-//                validPasswords++;
-//            }
+            if(isValidPasswordPolicyOne(minInt, maxInt, letter, password)) {
+                validPasswordsOne++;
+            }
+
             if(isValidPasswordPolicyTwo(minInt-1, maxInt-1, letter, password)) {
-                validPasswords++;
+                validPasswordsTwo++;
             }
 
         }
 
-        System.out.println(validPasswords);
+        System.out.println(validPasswordsOne);
+        System.out.println(validPasswordsTwo);
     }
 }
 
